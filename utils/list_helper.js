@@ -25,17 +25,22 @@ const favoriteBlog = (blogs) =>{
 }
 
 const mostBlogs = (blogs) =>{
-  let ordered = _.groupBy(blogs, 'author')
-  console.log(_.reverse(ordered))
+  let grouped = _.groupBy(blogs, 'author')
 
-  _.forEach(ordered, (author) =>{
-    console.log(author)
+  let mostAmount = -1
+  let most = ''
+  _.forEach(grouped, (author) =>{
+    if ( author.length > mostAmount ) {
+      mostAmount = author.length
+      most = author[0].author
+    }
 
   })
 
-  let amount = _.head(ordered)
-  console.log(amount)
-
+  return {
+    'author': most,
+    'blogs': mostAmount
+  }
 }
 
 module.exports ={
