@@ -14,10 +14,10 @@ logger.info('connecting to', config.MONGODB_URI)
 
 mongoose
   .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() =>{
+  .then(() => {
     console.log('connected to MongoDB')
   })
-  .catch((error) =>{
+  .catch((error) => {
     console.log('error connecting to MongoDB:', error.message)
   })
 

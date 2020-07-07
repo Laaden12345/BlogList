@@ -9,26 +9,26 @@ const Blog = require('../models/blog')
 
 
 
-describe('When there are some initial blogs', () =>{
+describe('When there are some initial blogs', () => {
 
-  beforeEach(async () =>{
+  beforeEach(async () => {
     await Blog.deleteMany({})
     await Blog.insertMany(helper.initialBlogs)
   })
-  test('blogs are returned as json', async () =>{
+  test('blogs are returned as json', async () => {
     await api
       .get('/api/blogs')
       .expect(200)
       .expect('Content-Type', /application\/json/)
   })
-  test('blogs are all returned', async () =>{
+  test('blogs are all returned', async () => {
     const response = await api.get('/api/blogs')
     expect(response.body).toHaveLength(helper.initialBlogs.length)
   })
 })
 
-describe('adding blog', () =>{
-  test('is successful', async () =>{
+describe('adding blog', () => {
+  test('is successful', async () => {
     const newBlog  = helper.singleBlog
     await api
       .post('/api/blogs')
@@ -41,6 +41,6 @@ describe('adding blog', () =>{
   })
 })
 
-afterAll(() =>{
+afterAll(() => {
   mongoose.connection.close()
 })

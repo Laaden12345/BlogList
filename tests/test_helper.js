@@ -44,9 +44,9 @@ const singleBlog = {
   likes: 0
 }
 
-const getBlogs = async () =>{
+const getBlogs = async () => {
   const blogs = await Blog.find({})
-  return blogs.map(blog =>blog.toJSON())
+  return blogs.map(blog => blog.toJSON())
 }
 
 module.exports = { initialBlogs, singleBlog, getBlogs }

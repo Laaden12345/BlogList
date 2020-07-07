@@ -62,41 +62,41 @@ const multipleBlogs = [
   }
 ]
 
-test('dummy returns one', () =>{
+test('dummy returns one', () => {
   const blogs = []
 
   const result = listHelper.dummy(blogs)
   expect(result).toBe(1)
 })
 
-describe('total likes', () =>{
+describe('total likes', () => {
 
-  test('of empty list is zero', () =>{
+  test('of empty list is zero', () => {
     expect(listHelper.totalLikes(emptyList)).toBe(0)
   })
 
-  test('when list has only one blog equals the likes of that', () =>{
+  test('when list has only one blog equals the likes of that', () => {
     const result = listHelper.totalLikes(listWithOneBlog)
     expect(result).toBe(5)
   })
 
-  test('of a bigger list is calculated right', () =>{
+  test('of a bigger list is calculated right', () => {
     expect(listHelper.totalLikes(multipleBlogs)).toBe(36)
   })
 })
 
-describe('favorite blog', () =>{
-  test('of empty list is undefined', () =>{
+describe('favorite blog', () => {
+  test('of empty list is undefined', () => {
     expect(listHelper.favoriteBlog(emptyList)).toBeUndefined()
   })
 
-  test('to be calculated correctly with multiple blogs', () =>{
+  test('to be calculated correctly with multiple blogs', () => {
     expect(listHelper.favoriteBlog(multipleBlogs)).toEqual(multipleBlogs[3])
   })
 })
 
-describe('most blogs', () =>{
-  test('is calculated correctly', () =>{
+describe('most blogs', () => {
+  test('is calculated correctly', () => {
     expect(listHelper.mostBlogs(multipleBlogs)).toEqual(
       {
         author: 'Robert C. Martin',
